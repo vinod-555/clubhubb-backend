@@ -9,12 +9,9 @@ import { getEventById, getEventList, getEventsByIds, registerEvent, unregisterEv
 const router =express.Router();
 
 router.get('/event-list',getEventList);
-
 router.get('/:eventId',getEventById);
-
 router.put('/:eventId',registerEvent);
-
-router.delete("/:eventId",unregisterEvent);
+ router.delete("/:eventId",unregisterEvent);
 router.post("/registerd/events",getEventsByIds)
 
 
