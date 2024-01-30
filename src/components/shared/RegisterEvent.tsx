@@ -234,7 +234,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
             handler: function (response: RazorpayResponse) {
                 console.log(response, "34");
                 axios
-                    .post("http://localhost:8080/api/v1/verify", {
+                    .post("https://clubhubb-user.onrender.com/api/v1/verify", {
                         response: response,
                     })
                     .then((res) => {
@@ -266,7 +266,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
         try {
             console.log(_data);
             const res = await axios.post(
-                "http://localhost:8080/api/v1/orders",
+                "https://clubhubb-user.onrender.com/api/v1/orders",
                 _data
             );
             console.log(res.data, "29");
