@@ -45,7 +45,7 @@ const LeftSideBar = () => {
 
                 <div className='flex gap-3'>
                     <img
-                        src="assets/images/profile.png"
+                        src="/assets/images/profile.png"
                         alt="profile"
                         className='h-11 w-11 rounded-full'
                     />
@@ -86,7 +86,7 @@ const LeftSideBar = () => {
             variant="ghost"
             className="shad-button_ghost"
             onClick={(e)=>handleSignOut(e)}>
-            <img src="assets/icons/logout.svg" alt="logout" />
+            <img src="/assets/icons/logout.svg" alt="logout" />
             <p  className='small-medium'>Logout</p>
           </Button>
         </nav>
