@@ -1,9 +1,9 @@
-import RegisterEvent from "@/components/shared/RegisterEvent";
+ import RegisterEvent from "@/components/shared/RegisterEvent";
 import { useGetEventByIdMutation } from "@/store/api/eventApi";
 import Loader from "@/components/shared/Loader";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
- import { useUserContext } from "@/context/useUserContext";
+import { useVerifyuserMutation } from "@/store/api/authApi";
 
 type Timings = {
     startTime: string;
@@ -17,8 +17,8 @@ type Post = {
     timings: Timings;
     cheifGuests: string[];
     amount: number;
-    requiredInfoOfStudent:string[];
-    registeredUserIds: { userId: string }[];    
+    requiredInfoOfStudent: string[];
+    registeredUserIds: { userId: string }[];
 };
 
 type DateTimeFormatOptions = {
@@ -32,12 +32,9 @@ type DateTimeFormatOptions = {
 
 const PostDetails = () => {
     const [GetEventById] = useGetEventByIdMutation();
-    const {user}=useUserContext();
-    console.log(user.userId+"use")
     const [posts, setPosts] = useState<Post>();
-    const [registrationStatus, setRegistrationStatus] = React.useState< "pending" | "success">("pending");
-
- 
+    const [registrationStatus, setRegistrationStatus] = React.useState<"pending" | "success">("pending");
+    const [verifyuser] = useVerifyuserMutation();
 
     const { eventId } = useParams();
 
@@ -58,22 +55,29 @@ const PostDetails = () => {
                             cheifGuests: [events.data.cheifGuests],
                             amount: events.data.amount,
                             requiredInfoOfStudent: events.data.requiredInfoOfStudent,
-                            registeredUserIds:events.data.registeredUserIds
+                            registeredUserIds: events.data.registeredUserIds
                         };
-                      
 
-                       
-                        if (updatedPosts.registeredUserIds.some((registeredUser: { userId: string }) => registeredUser.userId === user.userId)) {
-                            console.log(`User with ID ${user.userId} is registered.`);
-                            setRegistrationStatus("success");
-                         }else {
-                          console.log(`User with ID ${user.userId} is not registered.`);
-                            setRegistrationStatus("pending");
+                        const token = localStorage.getItem("token");
+
+                        if (token) {
+                            const session = await verifyuser({ token });
+                            if ('data' in session) {
+                                const { data } = session;
+                                const { user } = data;
+                                console.log(user._id)
+
+                                if (updatedPosts.registeredUserIds.some((registeredUser: { userId: string }) => registeredUser.userId === user._id)) {
+                                    console.log(`User with ID ${user._id} is registered.`);
+                                    setRegistrationStatus("success");
+                                } else {
+                                    console.log(`User with ID ${user.userId} is not registered.`);
+                                    setRegistrationStatus("pending");
+                                }
+                                setPosts(updatedPosts);
+                            }
                         }
-                         setPosts(updatedPosts);
-
-                        
-                     }
+                    }
                 }
             }
         } catch (error) {
@@ -95,10 +99,7 @@ const PostDetails = () => {
         };
 
         const dateTime = new Date(dateTimeString);
-        const formattedDateTime = new Intl.DateTimeFormat(
-            "en-US",
-            options
-        ).format(dateTime);
+        const formattedDateTime = new Intl.DateTimeFormat("en-US", options).format(dateTime);
 
         return formattedDateTime;
     };
@@ -133,9 +134,15 @@ const PostDetails = () => {
                                 </h1>
                             </div>
                         </div>
-                            <div className="mb-2">
-                                <RegisterEvent eventId={eventId} amount={posts.amount} requiredInfoOfStudent={posts.requiredInfoOfStudent} registrationState={registrationStatus}  fetchData={fetchData}/>
-                             </div>
+                        <div className="mb-2">
+                            <RegisterEvent
+                                eventId={eventId}
+                                amount={posts.amount}
+                                requiredInfoOfStudent={posts.requiredInfoOfStudent}
+                                registrationState={registrationStatus}
+                                fetchData={fetchData}
+                            />
+                        </div>
                         <div>
                             <p>
                                 <b>Start Time :</b>{" "}
@@ -159,7 +166,7 @@ const PostDetails = () => {
                             <p>{posts?.eventDescription}</p>
                         </div>
                         <div className="m-b-10">
-                        <h3
+                            <h3
                                 style={{
                                     fontWeight: "bold",
                                     fontSize: "18px",
@@ -169,7 +176,6 @@ const PostDetails = () => {
                                 Amount
                             </h3>
                             <p>{posts?.amount}</p>
-                             
                         </div>
                     </div>
                     <div
