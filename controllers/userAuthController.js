@@ -46,7 +46,7 @@ export const signup = async (req, res) => {
 export const signin = async (req, res) => {
   try {
     const { emailOrUsername, password } = req.body;
-
+     
     // Check if the email or username exists
     const user = await User.findOne({
       $or: [{ email: emailOrUsername }, { username: emailOrUsername }],

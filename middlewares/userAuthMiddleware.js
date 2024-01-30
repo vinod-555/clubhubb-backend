@@ -5,6 +5,8 @@ import User from '../models/userModel.js';
 export const requireSignIn =async (req, res, next) => {
   const token = req.headers.authorization;
 
+  
+
   if (!token) {
     return res.status(401).json({ message: 'Authorization token is missing' });
   }

@@ -1,10 +1,12 @@
-import Razorpay from "razorpay";
-import crypto from "crypto";
-const KEY_ID = "rzp_live_zrRLzm4kzwqdx9";
-const KEY_SECRET = "EeBMBUynfSIfRR1VqBc1ewvo";
 
+import dotenv from 'dotenv';
+import Razorpay from 'razorpay';
+import crypto from 'crypto';
+dotenv.config();
 export const orders = (req, res) => {
-    let instance = new Razorpay({ key_id: KEY_ID, key_secret: KEY_SECRET });
+    const key_id= process.env.KEY_ID;
+    const key_secret=process.env.KEY_SECRET;
+    let instance = new Razorpay({ key_id: process.env.KEY_ID, key_secret: process.env.KEY_SECRET });
 
     var options = {
         amount: req.body.amount * 100, // amount in the smallest currency unit
@@ -28,7 +30,7 @@ export const verfiy = (req, res) => {
         req.body.response.razorpay_payment_id;
 
     var expectedSignature = crypto
-        .createHmac("sha256", KEY_SECRET)
+        .createHmac("sha256", process.env.KEY_SECRET)
         .update(body.toString())
         .digest("hex");
 
