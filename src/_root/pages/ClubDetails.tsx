@@ -51,7 +51,7 @@ const ClubDetails = () => {
                 <div className="flex items-center flex-col max-xl:items-center flex-1 ">
                     <div className="flex flex-row gap-3">
                         <img
-                            src={"assets/images/profile.png"}
+                            src={"/assets/images/profile.png"}
                             alt="profile"
                             className="w-28 h-28 lg:h-36 lg:w-36 rounded-2xl"
                         />
