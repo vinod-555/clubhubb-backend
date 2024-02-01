@@ -19,6 +19,10 @@ router.get('/protected', requireSignIn, (req, res) => {
 // forgot password
 router.post('/forgot-password',forgotPasswordController)
 
+router.post("/verify-otp", verifyOtpController);
+
+router.post("/reset-password", resetPasswordController);
+
 
 export default router;
 
