@@ -42,7 +42,6 @@ const SigninForm = () => {
         console.log(session)
         if (!session) {
           toast({ title: "Login failed. Please try again." });
-          
           return;
         }
          
@@ -137,6 +136,13 @@ const SigninForm = () => {
                           "Sign in"
                       )}
                   </Button>
+                  <Link
+                      to="/forgot-password"
+                      className="text-primary-500 text-small-semibold mt-2"
+                  >
+                      Forgot password?
+                  </Link>
+
                   <p className="text-small-regular text-light-2 text-center mt-2">
                       {/*  <Link
              to="/forgot-password"
@@ -152,7 +158,6 @@ const SigninForm = () => {
                       </Link>
                   </p>
               </form>
-              
           </div>
       </Form>
   );
