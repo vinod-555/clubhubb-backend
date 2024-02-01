@@ -163,6 +163,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
 
 
             if ("error" in session) {
+                 console.log(session.error);
                 alert("Error while adding your information");
                 return;
             }
