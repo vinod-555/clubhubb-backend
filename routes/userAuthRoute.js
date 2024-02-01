@@ -2,7 +2,11 @@
 import express from 'express';
 import { signup, signin } from '../controllers/userAuthController.js';
 import { requireSignIn } from '../middlewares/userAuthMiddleware.js';
-import { forgotPasswordController } from '../controllers/forgotPasswordController.js';
+import {
+    forgotPasswordController,
+    verifyOtpController,
+    resetPasswordController,
+} from "../controllers/forgotPasswordController.js";
 
 const router = express.Router();
 
