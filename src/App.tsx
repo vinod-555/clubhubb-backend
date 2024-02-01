@@ -15,7 +15,8 @@ import "./globals.css";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import ForgotPasswordForm from "./_auth/forms/ForgotPassword";
- 
+import OtpInput from "./_auth/forms/OtpInput";
+import ResetPassword from "./_auth/forms/ResetPassword";
  
 
 const App = () => {
@@ -31,6 +32,8 @@ const App = () => {
                         path="/forgot-password"
                         element={<ForgotPasswordForm />}
                     />
+                    <Route path="/verify-otp" element={<OtpInput/>} />
+                    <Route path="/reset-password" element={<ResetPassword/>} />
                 </Route>
                 {/* private routes*/}
                 <Route element={<RootLayout />}>
