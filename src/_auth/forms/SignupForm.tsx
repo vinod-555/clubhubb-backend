@@ -15,15 +15,13 @@ import { SignupValidationSchema} from "@/lib/validation"
 import Loader from "@/components/shared/Loader";
 import { useSignupUserMutation } from "@/store/api/authApi";
 import { Link, useNavigate} from "react-router-dom";
-import { useToast } from "@/components/ui/use-toast";
-import { useEffect } from "react";
+ import { useEffect } from "react";
   
 
 const SignupForm = () => {
   
-  const { toast } = useToast();
-  const navigate = useNavigate();
-   const[signupuser,{data,isLoading,isError,isSuccess}]=useSignupUserMutation();
+   const navigate = useNavigate();
+   const[signupuser,{data,isLoading,isSuccess}]=useSignupUserMutation();
  
   
   

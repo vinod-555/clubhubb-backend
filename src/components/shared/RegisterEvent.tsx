@@ -96,7 +96,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
 
 
 
-    const [registerevent, { isLoading }] = useRegisterEventMutation();
+    const [registerevent] = useRegisterEventMutation();
     const [teamSize, setTeamSize] = useState(0);
     useEffect(() => {
         if (post.maxSize === 1) {
@@ -258,14 +258,15 @@ export default function RegisterEvent(props: RegisterEventProps) {
                     })
                     .then((res) => {
                         // Handle success, then proceed with the registration or other actions
- 
+                        console.log(res);
                         register();
                         setSuccessPayment(true); // Set success flag
 
                         setTimeout(() => {
                             }, 3000);
                     })
-                    .catch((err) => {
+                    .catch((error) => {
+                        console.log(error)
                         alert("Error in payment");
                         setSuccessPayment(false); // Set success flag to false in case of error
                     })

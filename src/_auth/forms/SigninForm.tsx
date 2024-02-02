@@ -15,15 +15,13 @@ import { SigninValidationSchema} from "@/lib/validation"
 import Loader from "@/components/shared/Loader";
 import { useSigninUserMutation } from "@/store/api/authApi";
 import { Link, useNavigate} from "react-router-dom";
-import { useToast } from "@/components/ui/use-toast";
-import { useEffect } from "react";
+ import { useEffect } from "react";
 import { useUserContext } from "@/context/useUserContext";
 
 const SigninForm = () => {
   
-  const { toast } = useToast();
-  const navigate = useNavigate();
-   const[signinuser,{data,isLoading,error,isSuccess}]=useSigninUserMutation();
+   const navigate = useNavigate();
+   const[signinuser,{data,isLoading,isSuccess}]=useSigninUserMutation();
    const { setIsAuthenticated, checkAuthUser } = useUserContext(); // Get context functions
 
   console.log(data)
