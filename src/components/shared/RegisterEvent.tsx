@@ -377,12 +377,11 @@ export default function RegisterEvent(props: RegisterEventProps) {
                             // Render loading indicator or message
                             <>
                             
-                                    <div className="p-4 m-2">
+                                    <div className="p-4 m-2" style={{backgroundColor: "#0DB14B" }}>
                                     <p>Registered successfully</p>
                                     {/* Add tick icon here */}
                                     <span role="img" aria-label="tick">✔️</span>
                                   </div>
-                               
                             </>
 
                         ) : (
