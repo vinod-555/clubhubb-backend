@@ -11,7 +11,9 @@ export const getEventList = async (req, res) => {
     // Find events that have not ended yet
     
     const events = await Event.find({
-      'timings.endTime': { $gt: currentTime }
+      'timings.endTime': { $gt: currentTime },
+       status: true
+
     });
     if (events.length === 0) {
         // No events found
