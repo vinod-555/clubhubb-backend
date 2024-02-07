@@ -432,7 +432,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
                                         </>
                                     ):(
                                             <>
-                                        PAY {(amount* teamSize)+(amount* teamSize)*(2/100) }
+                                        PAY {amount * teamSize}
                                             </>
                                         )}
                                         </Button>
