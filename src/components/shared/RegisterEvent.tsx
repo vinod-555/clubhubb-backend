@@ -290,7 +290,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
             alert("Please fill in all required fields");
             return;
         }
-    const _data = { amount: (amount * teamSize)+ (amount * teamSize) *0.02 };
+    const _data = { amount: (amount * teamSize)};
          console.log(_data.amount);
         try {
             console.log(_data);
