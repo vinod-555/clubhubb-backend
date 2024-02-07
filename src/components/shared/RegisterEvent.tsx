@@ -290,7 +290,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
             alert("Please fill in all required fields");
             return;
         }
-    const _data = { amount: (amount * teamSize)};
+    const _data = { amount: ((amount * teamSize) +1)};
          console.log(_data.amount);
         try {
             console.log(_data);
@@ -432,10 +432,11 @@ export default function RegisterEvent(props: RegisterEventProps) {
                                         </>
                                     ):(
                                             <>
-                                        PAY {amount * teamSize}
-                                            </>
+                                        PAY {(amount * teamSize)+1}
+                                            </>    
                                         )}
                                         </Button>
+                                        <p>Including service charge</p>
                                 )}
                             </div>
                         )}
