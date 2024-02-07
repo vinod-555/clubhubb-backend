@@ -436,8 +436,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
                                             </>    
                                         )}
                                         </Button>
-                                        <p>Including service charge</p>
-                                )}
+                                 )}
                             </div>
                         )}
                     </div>
