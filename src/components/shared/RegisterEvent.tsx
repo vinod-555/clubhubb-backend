@@ -421,6 +421,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
                                         Submit
                                     </Button>
                                 ) : (
+                                  <>
                                     <Button
                                         variant="contained"
                                         className="shad-button_primary"
@@ -436,6 +437,8 @@ export default function RegisterEvent(props: RegisterEventProps) {
                                             </>    
                                         )}
                                         </Button>
+                                      <p>Including service charge</p>
+                                  </>
                                  )}
                             </div>
                         )}
