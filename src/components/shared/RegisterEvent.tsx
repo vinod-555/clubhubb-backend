@@ -421,7 +421,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
                                         Submit
                                     </Button>
                                 ) : (
-                                  <div classname="flex flex-row gap-2">
+                                  <div className="flex flex-row gap-2">
                                     <Button
                                         variant="contained"
                                         className="shad-button_primary"
