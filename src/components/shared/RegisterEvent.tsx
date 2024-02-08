@@ -255,7 +255,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
                 setLoading(true);
 
                  axios
-                    .post("http://localhost:8000/api/v1/verify", {
+                    .post("https://clubhub-user-backend.onrender.com/api/v1/verify", {
                         response: response,
                     })
                     .then((res) => {
@@ -295,7 +295,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
     const _data = { amount: ((amount * teamSize)+1)};
          try {
              const res = await axios.post(
-                "http://localhost:8000/api/v1/orders",
+                "https://clubhub-user-backend.onrender.com/api/v1/orders",
                 _data
             );
  
