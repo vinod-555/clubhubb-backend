@@ -31,7 +31,7 @@ const Home =  () => {
      await getEvents({token});
        
     } catch (error) {
-      alert("Error fetching data");
+      console.log("wait");
     }
   };
   useEffect(() => {
