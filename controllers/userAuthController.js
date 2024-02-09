@@ -52,9 +52,7 @@ export const signin = async (req, res) => {
     const { emailOrUsername, password } = req.body;
      
     // Check if the email or username exists
-    const user = await User.findOne({
-      $or: [{ email: emailOrUsername }],
-    });
+    const user = await User.findOne({ email: emailOrUsername });
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
