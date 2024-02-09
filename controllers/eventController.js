@@ -107,16 +107,16 @@ export const registerEvent = async (req, res) => {
     // Now includedFields will have the regular fields and extra fields categorized under extraFields
 
     // Check if all required fields (including regular and extra fields) are present
-    const missingFields = updatedRequiredFields.filter((field) => {
-      if (includedFields[field] === undefined) {
-        // Check if the field is in the extraFields, if yes, check if it's present in includedFields.extraFields
-        return (
-          extraFields[field] !== undefined &&
-          includedFields.extraFields[field] === undefined
-        );
-      }
-      return false;
-    });
+    // const missingFields = updatedRequiredFields.filter((field) => {
+    //   if (includedFields[field] === undefined) {
+    //     // Check if the field is in the extraFields, if yes, check if it's present in includedFields.extraFields
+    //     return (
+    //       extraFields[field] !== undefined &&
+    //       includedFields.extraFields[field] === undefined
+    //     );
+    //   }
+    //   return false;
+    // });
 
     // if (missingFields.length > 0) {
     //   return res.status(400).json({
