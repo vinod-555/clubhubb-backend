@@ -429,7 +429,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
                                     >
                                     {loading?(
                                         <>
-                                                <Loader/>
+                                                <Loader/> Please wait...
                                         </>
                                     ):(
                                             <>
