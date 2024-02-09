@@ -429,7 +429,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
                                         <>
                                                 <Loader/> please wait...
                                         </>
-                                    ):
+                                    ):(
                                             <>
                                         PAY {(amount * teamSize)+1}
                                             </>    
