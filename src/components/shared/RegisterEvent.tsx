@@ -378,7 +378,6 @@ export default function RegisterEvent(props: RegisterEventProps) {
                             
                                     <div className="p-4 m-2" style={{backgroundColor: "#0DB14B" }}>
                                     <p>Registered successfully</p>
-                                    <p>Check your email for conformation</p>
                                     <p>Thank You!!!</p>
                                     {/* Add tick icon here */}
                                   </div>
