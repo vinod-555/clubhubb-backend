@@ -64,7 +64,7 @@ const SignupForm = () => {
  <h1 className="font-bold text-2xl md:text-4xl" style={{color: "#877EFF",fontSize: "3.2rem",marginTop: 60,}}>Clubhubb</h1>
         
     <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
-      Login account
+      Cretate account
     </h2>
     <p className="text-light-3 small-medium md:base-regular mt-2">
       To use Clubhubb, Please enter your details
