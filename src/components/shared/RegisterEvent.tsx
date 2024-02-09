@@ -375,11 +375,12 @@ export default function RegisterEvent(props: RegisterEventProps) {
                             // Render loading indicator or message
                             <>
                             
-                                    <div className="p-4 m-2" style={{backgroundColor: "white" , color:"black" }}>
-                                    <p>please wait 15 sec for processing ...</p>
-                                    <p>Thank You!!!</p>
-                                    {/* Add tick icon here */}
-                                  </div>
+                                     <div style={{ padding: '1rem', margin: '0.5rem', backgroundColor: 'white', color: 'black', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', position: 'relative', textAlign: 'center' }}>
+      <p>Please wait 15 sec for processing...</p>
+      <p>Thank You!!!</p>
+      {/* Tick icon here */}
+      <span style={{ position: 'absolute', top: '10px', right: '10px', color: 'green', fontSize: '24px' }}>&#10003;</span>
+    </div>
                             </>
 
                         ) : (
@@ -435,7 +436,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
                                         )}
                                         </Button>
                                       <div style={{color:"red"}}>
-                                      <p>Including service charge</p>
+                                      <p>Please wait 10 seconds after payment.</p>
                                       </div>
                                       
                                   </div>
