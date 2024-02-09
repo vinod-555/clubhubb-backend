@@ -264,8 +264,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
                          register();
                         setSuccessPayment(true); // Set success flag
 
-                        setTimeout(() => {
-                            }, 3000);
+                        
                     })
                     .catch((error) => {
                         console.log(error)
