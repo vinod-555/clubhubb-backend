@@ -376,7 +376,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
                             // Render loading indicator or message
                             <>
                             
-                                    <div className="p-4 m-2" style={{backgroundColor: "white" ; color:"black" }}>
+                                    <div className="p-4 m-2" style={{backgroundColor: "white" , color:"black" }}>
                                     <p>please wait 15 sec for processing ...</p>
                                     <p>Thank You!!!</p>
                                     {/* Add tick icon here */}
