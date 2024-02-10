@@ -37,12 +37,16 @@ const SignupForm = () => {
   })
   // 2. Define a submit handler.
   async function handleSignup(values: z.infer<typeof SignupValidationSchema>) {
-     const data = await signupuser({ ...values });
-    if ('error' in data) {
-      alert("signup failed. Please try again.");
-
-      return;
-    }
+     const session= await signupuser({ ...values });
+     if ('error' in session && 'status' in session.error) {
+      const { error } = session;
+      if(error.status===400){
+          alert("Email already exists sign in")
+      }else{
+          alert("Sign up faild , try again.")
+      }
+       return;
+  }
 
   }
   useEffect(() => {
@@ -104,7 +108,7 @@ const SignupForm = () => {
                 <FormLabel className="shad-form_label">Email</FormLabel>
                 <FormControl>
                   <Input
-                    type="text"
+                    type="email"
                     className="shad-input"
                     {...field}
                     value={field.value.toLowerCase()} // Convert to lowercase here
