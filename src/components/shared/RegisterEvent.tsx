@@ -27,7 +27,7 @@ type RazorpayOptions = {
 type Post = {
 
 
-
+    eventName:string;
     requiredInfoOfStudent: string[];
     registeredUserIds: { userId: string }[];
     maxSize: number;
@@ -250,7 +250,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
             currency: data.currency,
             order_id: data.id,
             name: "ClubHub",
-            description: "Event Registeration", //
+            description: post? post.eventName:  "Event Registeration", //
             handler: function (response: RazorpayResponse) {
                 setLoading(true);
 
