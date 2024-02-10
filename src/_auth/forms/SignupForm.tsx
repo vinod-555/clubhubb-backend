@@ -30,7 +30,7 @@ const SignupForm = () => {
     defaultValues: {
       name: "",
       email: "",
-      collegeName: "Anurag university",
+      collegeName: "",
       password: "",
       phoneNumber: ""
     },
@@ -112,7 +112,7 @@ const SignupForm = () => {
                     className="shad-input"
                     {...field}
                     value={field.value.toLowerCase()} // Convert to lowercase here
-                    placeholder="Use your personal email"
+                    
                   />
                 </FormControl>
                 <FormMessage />
