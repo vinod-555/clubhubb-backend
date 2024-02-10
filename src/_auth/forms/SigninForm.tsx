@@ -36,9 +36,14 @@ const SigninForm = () => {
     // 2. Define a submit handler.
     async function handleSignin(values: z.infer<typeof SigninValidationSchema>) {
         const session = await signinuser({ ...values });
-        if ('error' in session) {
-            alert("Login failed. Please try again.");
-            return;
+         if ('error' in session && 'status' in session.error) {
+            const { error } = session;
+            if(error.status===404){
+                alert("Invalid email Sign up")
+            }else{
+                alert("Invalid password , try again.")
+            }
+             return;
         }
 
     }
@@ -90,7 +95,7 @@ const SigninForm = () => {
                                 </FormLabel>
                                 <FormControl>
                                     <Input
-                                        type="text"
+                                        type="email"
                                         className="shad-input"
                                         {...field}
                                         value={field.value.toLowerCase()} // Convert to lowercase here
