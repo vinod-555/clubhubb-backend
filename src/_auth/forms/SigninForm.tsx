@@ -99,7 +99,7 @@ const SigninForm = () => {
                                         className="shad-input"
                                         {...field}
                                         value={field.value.toLowerCase()} // Convert to lowercase here
-                                        placeholder="Login with your personal email"
+                                    
                                     />
                                 </FormControl>
                                 <FormMessage />
