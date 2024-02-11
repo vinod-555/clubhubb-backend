@@ -18,15 +18,15 @@ const GridPostList: React.FC<GridPostListProps> = ({ posts}) => {
   return (
     <div className="p-2" >
       {posts.map((post) => (
+     <>
+            <Link to={`/posts/${post.eventId}`}>
         <div className="post-card flex flex-row md:flex-col " key={post.imageUrl}>
           <div className="">
-            <Link to={`/posts/${post.eventId}`}>
               <img
                 src={post.imageUrl}
                 alt={post.eventName}
                 className="w-[100px] h-[90px] md:w-full md:h-full rounded-2xl"
               />
-            </Link>
           </div>
           <div className="pt-3 pl-4">
             <p
@@ -40,6 +40,8 @@ const GridPostList: React.FC<GridPostListProps> = ({ posts}) => {
             </p>
           </div>
         </div>
+            </Link>
+     </>
       ))}
     </div>
   );
