@@ -224,14 +224,10 @@ export default function RegisterEvent(props: RegisterEventProps) {
             if ('data' in session) {
                 setRegistrationStatus("success");
                 fetchData();
-
-                // Wait for 5 seconds before navigating to '/profile'
-                setTimeout(() => {
                     navigate('/profile');
-                    
                     // Reload the page after navigation
                     window.location.reload();
-                }, 3000);
+                
              }
         } catch (error) {
             alert("Error  in registering event");
