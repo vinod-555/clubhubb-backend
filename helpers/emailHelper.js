@@ -43,7 +43,7 @@ export const sendEventRegistrationConfirmationEmail = async (email, eventName, q
       subject: 'Event Registration Confirmation',
       html: `
         <p>Thank you for registering for the event "${eventName}".</p>
-          <p>For more events and updates, please visit our website: <a href="https://daksha30.com/">Daksha 3.0</a></p>
+          <p>For more events and updates, please visit our website: <a href="https://clubhubb.in">Clubhubb</a></p>
 
       `,
     };
