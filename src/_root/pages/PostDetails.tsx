@@ -37,6 +37,8 @@ const PostDetails = () => {
     const [posts, setPosts] = useState<Post>();
     const [registrationStatus, setRegistrationStatus] = React.useState<"pending" | "success">("pending");
     const [verifyuser] = useVerifyuserMutation();
+    const isMobile = window.innerWidth < 600;
+
 
     const { eventId } = useParams();
 
@@ -138,14 +140,16 @@ const PostDetails = () => {
                             </div>
                         </div>
                         <div className="mb-2">
-                            <RegisterEvent
-                                eventId={eventId}
-                                amount={posts.amount}
-                                requiredInfoOfStudent={posts.requiredInfoOfStudent}
-                                registrationState={registrationStatus}
-                                fetchData={fetchData}
-                                post={posts}
-                            />
+                            {isMobile && (
+                                <RegisterEvent
+                                    eventId={eventId}
+                                    amount={posts.amount}
+                                    requiredInfoOfStudent={posts.requiredInfoOfStudent}
+                                    registrationState={registrationStatus}
+                                    fetchData={fetchData}
+                                    post={posts}
+                                />
+                            )}
                         </div>
                         <div>
                             <p>
