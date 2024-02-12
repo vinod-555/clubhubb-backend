@@ -150,13 +150,11 @@ export const registerEvent = async (req, res) => {
       qrCode
     );
 
-   if(event.amount===0){
- 
+  
     res
       .status(200)
       .json({ message: "Event registration successful", qrCode: qrCode });
-    }
-  } catch (error) {
+    } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
