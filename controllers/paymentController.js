@@ -25,7 +25,8 @@ export const orders = (req, res) => {
 
 
 export const verfiy = (req, res) => {
-     console.log(req.body.registrationData)
+    console.log(req.body)
+    console.log(req.body.registrationData)
     let body =
         req.body.response.razorpay_order_id +
         "|" +
@@ -40,7 +41,8 @@ export const verfiy = (req, res) => {
         req.body=req.body.registrationData
         registerEvent(req,res)
         
-     } else {
+        res.send({ code: 200, message: "Sign Valid" });
+    } else {
         res.send({ code: 500, message: "Sign Invalid" });
     }
 };
