@@ -41,6 +41,9 @@ const eventSchema = new mongoose.Schema({
    default:false
 
  },
+ amount: {
+  type: Number, // Assuming an array of strings for speaker names
+},
  eventPoster: {
    publicId: {
        type: String,
