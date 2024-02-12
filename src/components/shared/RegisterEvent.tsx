@@ -224,7 +224,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
 
  
                  axios
-                    .post("http://localhost:8000/api/v1/verify", {
+                    .post("https://clubhub-user-backend.onrender.com/api/v1/verify", {
                         response: response,
                         registrationData:registrationData
                     },
