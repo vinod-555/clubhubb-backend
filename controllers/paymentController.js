@@ -2,8 +2,6 @@
 import dotenv from 'dotenv';
 import Razorpay from 'razorpay';
 import crypto from 'crypto';
-import { registerEvent } from './eventController.js';
-
 dotenv.config();
 export const orders = (req, res) => {
      
@@ -25,8 +23,6 @@ export const orders = (req, res) => {
 
 
 export const verfiy = (req, res) => {
-    console.log(req.body)
-    console.log(req.body.registrationData)
     let body =
         req.body.response.razorpay_order_id +
         "|" +
@@ -38,9 +34,6 @@ export const verfiy = (req, res) => {
         .digest("hex");
 
     if (expectedSignature === req.body.response.razorpay_signature) {
-        req.body=req.body.registrationData
-        registerEvent(req,res)
-        
         res.send({ code: 200, message: "Sign Valid" });
     } else {
         res.send({ code: 500, message: "Sign Invalid" });
