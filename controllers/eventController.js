@@ -41,9 +41,9 @@ export const getEventById = async (req, res) => {
 
 export const registerEvent = async (req, res) => {
   try {
-    console.log(req.body)
     const userId = req.user._id;
-    const { teamSize , eventId } = req.body;
+    const eventId = req.params.eventId;
+    const { teamSize } = req.body;
     console.log(teamSize);
     // Remove name and email from customizedData if they are present
     const { name, email, ...remainingData } = req.body.additionalInfo;
@@ -145,13 +145,15 @@ export const registerEvent = async (req, res) => {
     // Save changes to the database
     await user.save();
     await event.save();
-    console.log(event.amount)
-    if(event.amount===0){
- 
+    await sendEventRegistrationConfirmationEmail(
+      user.email,
+      event.eventName,
+      qrCode
+    );
+
     res
       .status(200)
       .json({ message: "Event registration successful", qrCode: qrCode });
-    }
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
