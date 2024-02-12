@@ -211,6 +211,13 @@ export default function RegisterEvent(props: RegisterEventProps) {
 
 
     const handleOpenRazorpay = (data: RazorpayResponse) => {
+
+        const registrationData = {
+            eventId,
+            additionalInfo,
+            teamSize
+        };
+        const token = localStorage.getItem("token");
  
         const options: RazorpayOptions = {
             key: "", //key should be given
