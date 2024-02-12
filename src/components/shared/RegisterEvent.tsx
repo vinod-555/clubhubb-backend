@@ -192,7 +192,7 @@ export default function RegisterEvent(props: RegisterEventProps) {
 
             }
 
-            // Uncomment the following line when you are ready to submit the form
+            
             // await registerevent(registrationData);
 
             // Update the registration status upon successful registration
