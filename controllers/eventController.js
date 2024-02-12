@@ -42,8 +42,7 @@ export const getEventById = async (req, res) => {
 export const registerEvent = async (req, res) => {
   try {
     const userId = req.user._id;
-    const eventId = req.params.eventId;
-    const { teamSize } = req.body;
+    const { teamSize , eventId } = req.body;
     console.log(teamSize);
     // Remove name and email from customizedData if they are present
     const { name, email, ...remainingData } = req.body.additionalInfo;
