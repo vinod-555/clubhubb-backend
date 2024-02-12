@@ -40,8 +40,7 @@ export const verfiy = (req, res) => {
         req.body=req.body.registrationData
         registerEvent(req,res)
         
-        res.send({ code: 200, message: "Sign Valid" });
-    } else {
+     } else {
         res.send({ code: 500, message: "Sign Invalid" });
     }
 };
