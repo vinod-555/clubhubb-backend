@@ -204,6 +204,38 @@ export default function RegisterEvent(props: RegisterEventProps) {
         handleClose();
     };
 
+
+     async function register() {
+        const registrationData = {
+            eventId,
+            additionalInfo,
+            teamSize
+        };
+ 
+
+        try {
+            const session = await registerevent(registrationData);
+            handleClose();
+
+
+            if ("error" in session) {
+                alert("Error while adding your information");
+                return;
+            }
+            if ('data' in session) {
+                setRegistrationStatus("success");
+                fetchData();
+
+         
+                    navigate('/profile');
+                    // Reload the page after navigation
+                    window.location.reload();
+            
+             }
+        } catch (error) {
+            alert("Error  in registering event");
+        }
+    }
   
     const [loading, setLoading] = useState(false);
     const [successPayment, setSuccessPayment] = useState(false);
@@ -212,13 +244,8 @@ export default function RegisterEvent(props: RegisterEventProps) {
 
     const handleOpenRazorpay = (data: RazorpayResponse) => {
 
-        const registrationData = {
-            eventId,
-            additionalInfo,
-            teamSize
-        };
-        const token = localStorage.getItem("token");
- 
+       
+  
         const options: RazorpayOptions = {
             key: "", //key should be given
             amount: Number((data.amount)),
@@ -233,22 +260,13 @@ export default function RegisterEvent(props: RegisterEventProps) {
                  axios
                     .post("https://clubhub-user-backend.onrender.com/api/v1/verify", {
                         response: response,
-                        registrationData:registrationData
-                    },
-                    {
-                        headers: {
-                            'Authorization': `${token}`,
-                            'Content-Type': 'application/json',
-                        }
-                    })
+                      
+                    } )
                     .then((res) => {
                         // Handle success, then proceed with the registration or other actions
                         console.log(res+"Thank You");
-                         setSuccessPayment(true); // Set success flag
-                         setRegistrationStatus("success"); 
-                         navigate('/profile')
-                         window.location.reload();
-
+                         register();
+                        setSuccessPayment(true); // Set success flag
                         
                     })
                     .catch((error) => {
