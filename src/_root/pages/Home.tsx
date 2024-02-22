@@ -61,17 +61,17 @@ const Home =  () => {
                 Events
           </h2>
           <p>Currently registratioins are closed</p>
-          <p>Check profile for registered events </p>
+          
           {showMessage && (
             <div className="scrolling-text-container">
           <div className="scrolling-text"  style={{ color: '#866EFF'}}>
-            Click poster to register event
+            Check profile for registered events
           </div>
         </div>
       )}
            {isEventLoading && !events?(
             <Loader/>
-
+                
           ):(
             <ul className="flex flex-col flex-1 gap-9 w-full">
             
