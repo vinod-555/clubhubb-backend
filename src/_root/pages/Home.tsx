@@ -61,7 +61,7 @@ const Home =  () => {
                 Events
           </h2>
           <p>Currently registratioins are closed</p>
-          <p>Check profile for registered events</p>
+          <p>Check profile for registered events </p>
           {showMessage && (
             <div className="scrolling-text-container">
           <div className="scrolling-text"  style={{ color: '#866EFF'}}>
