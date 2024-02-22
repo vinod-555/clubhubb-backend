@@ -60,6 +60,8 @@ const Home =  () => {
           <h2 className="h3-bold md:h2-bold text-left w-full">
                 Events
           </h2>
+          <p>Currently registratioins are closed</p>
+          <p>Check profile for registered events</p>
           {showMessage && (
             <div className="scrolling-text-container">
           <div className="scrolling-text"  style={{ color: '#866EFF'}}>
